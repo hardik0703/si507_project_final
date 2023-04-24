@@ -269,15 +269,15 @@ cities = [city for city in cities if city.house_price != None and city.crime_rat
 print('\nOnly ' + str(len(cities)) + ' cities have both house price and crime data. Discarding the remaining ' + str(len(CITIES_CACHE) - len(cities)) + ' cities.')
 print('\nData is now fully ready!')
 
-'''
+
 # Write the final cities to a CSV file - this is for debugging purposes
-with open('cities_testing.csv', 'w', encoding = 'utf-8', newline='') as file_obj:
+with open('cities_data_structure.csv', 'w', encoding = 'utf-8', newline='') as file_obj:
     writer = csv.DictWriter(file_obj, fieldnames=cities[0].__dict__.keys())
     writer.writeheader() # first row
     for row in cities:
         row_dict = row.__dict__
         writer.writerow(row_dict)
-'''
+
 
 
 # ANALYSIS AND PLOTTING SECTION
@@ -338,6 +338,9 @@ while True:
 # make empty search tree
 SEARCH_TREE = sf.make_search_tree(SEARCH_TREE)
 
+# write the search tree to a JSON file
+sf.write_tree_to_file(SEARCH_TREE)
+
 # insert cities into the search tree
 insertions = 0
 for city in cities:
@@ -345,6 +348,7 @@ for city in cities:
     insertions += 1
 print('\nInserted ' + str(insertions) + ' cities into the search tree.')
 # pprint(SEARCH_TREE)
+
 
 # Sanity Check - count the number of cities in the search tree
 # print(sf.do_sanity_count_check(SEARCH_TREE))

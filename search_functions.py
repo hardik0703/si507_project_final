@@ -1,5 +1,7 @@
 from pprint import pprint
 import csv
+import json
+# import pickle
 
 def make_search_tree(search_tree):
     '''
@@ -139,3 +141,16 @@ def do_sanity_count_check(search_tree):
                     count += len(winter_temp_bucket)
     return f'Sanity check: total number of cities in the search tree is {count}'
 
+def write_tree_to_file(search_tree):
+    '''
+    This function writes the search tree to a json file.
+
+    Parameters:
+    search_tree (dict): a nested dictionary that represents the search tree
+
+    Returns:
+    None
+    '''
+    with open('search_tree.json', 'w', encoding='utf-8') as fp:
+        json.dump(search_tree, fp, indent=4, ensure_ascii=False)
+        # pickle.dump(search_tree, fp)  # attempt to write class objects to file
