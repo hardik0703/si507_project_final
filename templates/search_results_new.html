@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <style>
+        table, th, td {border: 1px solid black; padding: 5px;}
+    </style>
+
+</head>
+<body>
+    <h1>Here are your search results!</h1>
+    <h6>(You can go 'back' on the browser to try a new search)</h5>
+    <div>
+        <h3>The areas where you may enjoy living are:</h3>
+        <br>
+        <table>
+            <!-- sort this table by state and then county name, alphabetically -->
+            <tr>
+                <th>Number</th>
+                <th>State</th>
+                <th>City</th>
+                <th>County</th>
+                <th>Median Home Prices</th>
+                <th>Avg. Summer High Temp.</th>
+                <th>Avg. Winter Low Temp.</th>
+                <th>Crime Rate</th>
+                <th>Population</th>
+            </tr>
+            {% for city in search_results %}
+                <tr>
+                    <td>{{search_results.index(city)+1}}</td>
+                    <td>{{city.state}}</td>
+                    <td>{{city.name}}</td>
+                    <td>{{city.county}}</td>
+                    <td>${{city.house_price}}</td>
+                    <!-- round this house price number -->
+                    <td>{{city.summer_high_temp}}&#176 F</td>
+                    <td>{{city.winter_low_temp}}&#176 F</td>
+                    <td>{{city.crime_rate}}%</td>
+                    <td>{{city.population}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div>
+        <h3>Here is how house prices stack up across these cities:</h3>
+        {{plot_div | safe}}
+    </div>
+</body>
+</html>

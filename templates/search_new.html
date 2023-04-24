@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>City Search Tool</title>
+</head>
+<body>
+    <h1>Please tell us what kind of location are you looking for? We will help you find the right cities to live.</h1>
+    <form action="/handle_search" method="post">    
+        <p>
+            <h3>Please select the median house price range:</h3>
+            <input type = 'radio' name = 'price' value = 'price below 200k'>Less than $200k <br/>
+            <input type = 'radio' name = 'price' value = 'price 200-400k'>Between $200k to $400k <br/>
+            <input type = 'radio' name = 'price' value = 'price 400-600k'>Between $400k to $600k <br/>
+            <input type = 'radio' name = 'price' value = 'price above 600k'>Above $600K <br/>
+        </p>
+
+        <p>
+            <h3>Please select the crime prevalence:</h3> 
+            <select name="Crime Rate">
+                <option value="crime rare">Rare (less than 16.5 incidents per 1000 people, anually)</option>
+                <option value="crime medium">Medium (less than 20 incidents per 1000 people, anually)</option>
+                <option value="crime frequent">Frequent (more than 20 incidents per 1000 people, anually)</option>
+            </select>
+                <br><br>
+        </p>
+
+        <p>
+            <h3>Please select the highest summer temperature you can live with:</h3>
+            <input type = 'radio' name = 'summer_temp' value = 'summer temp below 90'>Less than 90 degrees most days<br/>
+            <input type = 'radio' name = 'summer_temp' value = 'summer temp 90-100'>Between 90 to 100 degrees most days<br/>
+            <input type = 'radio' name = 'summer_temp' value = 'summer temp above 100'>More than 100 degrees on many days <br/>
+        </p>
+
+        <p>
+            <h3>Please select the lowest winter temperature you can live with:</h3>
+            <input type = 'radio' name = 'winter_temp' value = 'winter temp below 40'>Less than 40 degrees on many days<br/>
+            <input type = 'radio' name = 'winter_temp' value = 'winter temp 40-50'>Between 40 to 50 degrees on most days <br/>
+            <input type = 'radio' name = 'winter_temp' value = 'winter temp above 50'>Above 50 degrees most days <br/>
+        </p>
+
+        <p>
+            <br>
+            <input type = 'submit' value = 'Submit'/>
+        </p>
+    </form>
+</body>
+</html>
+
